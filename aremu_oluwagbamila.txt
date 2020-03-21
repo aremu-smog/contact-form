@@ -1,3 +1,0 @@
-fullname: Aremu Oluwagbamila
-email: aremu@domain.com
-message: You guys simply rock!
