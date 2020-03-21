@@ -1,7 +1,7 @@
 
 <?php
 
-echo "<a href='index.html'>Go back</a>";
+$message = "";
 //Inputs
 $fields = array("fullname","email","message");
 
@@ -39,16 +39,32 @@ if(empty($empty_fields)){
 
     //Close the file
     fclose($contact_file);
-    echo "<h3>We got your message, we will reach out shortly</h3>";
+    $message =  "<h3>We got your message, we will reach out shortly</h3>";
 }else{
 
     //Show an error of all the empty fields
-    echo "<h3>The following fields were empty<h3>";
-    echo "<ul>";
+    $message = "<h3>The following fields were empty</h3>";
+    $message .= "<ul>";
     foreach($empty_fields as $empty_field){
-        echo "<li>".$empty_field."</li>";
+        $message .= "<li>".strtoupper($empty_field)."</li>";
     }
     echo "</ul>";
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="website-wrapper">
+        <a href='index.html'>Go back</a>
+        <?php echo $message ?>
+    </section>
+</body>
+</html>
